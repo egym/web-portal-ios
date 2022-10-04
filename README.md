@@ -23,7 +23,7 @@
 
 
 ## Setup
-- swift package(recommended)
+- Swift Package (recommended)
 - git submodules
 
 ## Usage
