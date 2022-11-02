@@ -35,7 +35,7 @@ public enum PublishTopic: String, Codable {
     case authToken
     case error
     case exerciserInfo
-	  case trainerInfo
+    case trainerInfo
     case openWebView
 }
 ```
