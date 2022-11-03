@@ -10,11 +10,11 @@ import Foundation
 public enum CallbackType: String, Codable {
     case authToken
     case exerciserInfo
-    case trainerInfo
     case dismiss
     case openFeature
     case openUrlExternally
     case openWebView
+    case trainerInfo
 }
 
 public struct WebPortalCallback {

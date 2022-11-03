@@ -10,9 +10,9 @@ import Foundation
 public enum PublishTopic: String, Codable {
     case authToken
     case error
-    case trainerInfo
     case exerciserInfo
     case openWebView
+    case trainerInfo
 }
 
 public enum PublishValue {

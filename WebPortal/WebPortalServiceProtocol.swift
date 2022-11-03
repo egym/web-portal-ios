@@ -13,12 +13,12 @@ public protocol WebPortalServiceProtocol: AnyObject {
 }
 
 public struct PortalConfig {
-    public let name: String
-    public let key: String
-    public let startDir: String
-    public let liveAppId: String?
-    public let liveUpdateChannel: String?
-    public let isLiveUpdateEnabled: Bool
+    let name: String
+    let key: String
+    let startDir: String
+    let liveAppId: String?
+    let liveUpdateChannel: String?
+    let isLiveUpdateEnabled: Bool
 
     public init(
         key: String,
