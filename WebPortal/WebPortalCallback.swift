@@ -20,6 +20,11 @@ public enum CallbackType: String, Codable {
 public struct WebPortalCallback {
     public let type: CallbackType
     public let data: [String: Any]?
+
+    public init(type: CallbackType, data: [String : Any]?) {
+        self.type = type
+        self.data = data
+    }
 }
 
 public enum CallbackKey: String {
