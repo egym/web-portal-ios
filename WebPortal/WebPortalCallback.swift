@@ -14,6 +14,7 @@ public enum CallbackType: String, Codable {
     case openFeature
     case openUrlExternally
     case openWebView
+    case trainerInfo
 }
 
 public struct WebPortalCallback {

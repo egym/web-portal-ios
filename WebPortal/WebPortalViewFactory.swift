@@ -10,11 +10,11 @@ import IonicLiveUpdates
 import UIKit
 
 public protocol WebPortalViewFactory {
-    func createView(config: PortalConfig, initialContext: [String: String]) -> UIView?
+    func createView(config: PortalConfig, initialContext: [String: String]) -> UIView
 }
 
 public extension WebPortalViewFactory {
-    func createView(config: PortalConfig, initialContext: [String: String]) -> UIView? {
+    func createView(config: PortalConfig, initialContext: [String: String]) -> UIView {
         let liveUpdateConfig: LiveUpdate?
         if config.isLiveUpdateEnabled,
             let liveAppId = config.liveAppId,

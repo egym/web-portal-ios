@@ -12,6 +12,7 @@ public enum PublishTopic: String, Codable {
     case error
     case exerciserInfo
     case openWebView
+    case trainerInfo
 }
 
 public enum PublishValue {
