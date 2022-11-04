@@ -20,14 +20,14 @@ public enum PublishValue {
     case data(Data)
 }
 
-public struct MwaError: Codable {
-    let type: ErrorType
-    let code: Int?
-    let url: String?
-    let message: String?
+public struct CallbackError: Codable {
+    public let type: CallbackType
+    public let code: Int?
+    public let url: String?
+    public let message: String?
 
     public init(
-        type: ErrorType,
+        type: CallbackType,
         code: Int? = nil,
         url: String? = nil,
         message: String? = nil
@@ -36,9 +36,5 @@ public struct MwaError: Codable {
         self.code = code
         self.url = url
         self.message = message
-    }
-
-    public enum ErrorType: String, Codable {
-        case openUrl
     }
 }
