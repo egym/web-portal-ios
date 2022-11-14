@@ -45,7 +45,16 @@ public class IonicPortalsService: WebPortalServiceProtocol {
             if let value = codable as? JSValue {
                 PortalsPubSub.publish(value, to: topic.rawValue)
             } else {
-                codable.toDictionary().map { PortalsPubSub.publish($0, to: topic.rawValue) }
+                guard
+                    let data = try? JSONEncoder().encode(codable),
+                    let encodedStringData = String(data: data, encoding: .utf8)
+                else {
+                    codable.toDictionary().map { PortalsPubSub.publish($0, to: topic.rawValue) }
+
+                    return
+                }
+
+                PortalsPubSub.publish(encodedStringData, to: topic.rawValue)
             }
         case .data(let data):
             guard let dictionary = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
