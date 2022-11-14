@@ -49,8 +49,6 @@ public class IonicPortalsService: WebPortalServiceProtocol {
                     let data = try? JSONEncoder().encode(codable),
                     let encodedStringData = String(data: data, encoding: .utf8)
                 else {
-                    codable.toDictionary().map { PortalsPubSub.publish($0, to: topic.rawValue) }
-
                     return
                 }
 
@@ -63,15 +61,5 @@ public class IonicPortalsService: WebPortalServiceProtocol {
             }
             PortalsPubSub.publish(value, to: topic.rawValue)
         }
-    }
-}
-
-fileprivate extension Encodable {
-    func toDictionary() -> JSValue? {
-        guard let data = try? JSONEncoder().encode(self),
-              let dictionary = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
-                  return nil
-              }
-        return dictionary as? JSValue
     }
 }
