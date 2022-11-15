@@ -19,6 +19,7 @@ public struct PortalConfig {
     let liveAppId: String?
     let liveUpdateChannel: String?
     let isLiveUpdateEnabled: Bool
+    let syncImmediately: Bool
 
     public init(
         key: String,
@@ -26,7 +27,8 @@ public struct PortalConfig {
         startDir: String,
         liveAppId: String?,
         liveUpdateChannel: String?,
-        isLiveUpdateEnabled: Bool
+        isLiveUpdateEnabled: Bool,
+        syncImmediately: Bool = false
     ) {
         self.key = key
         self.name = name
@@ -34,5 +36,6 @@ public struct PortalConfig {
         self.liveAppId = liveAppId
         self.liveUpdateChannel = liveUpdateChannel
         self.isLiveUpdateEnabled = isLiveUpdateEnabled
+        self.syncImmediately = syncImmediately
     }
 }
