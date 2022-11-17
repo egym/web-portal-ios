@@ -23,8 +23,8 @@ public class IonicPortalsService: WebPortalServiceProtocol {
         cancellable = PortalsPubSub.subscribe(to: subscriptionKey) { result in
             guard let typeString = (result.data as? [String: Any])?["type"] as? String,
                   let callbackType = CallbackType(rawValue: typeString) else {
-                      return
-                  }
+                return
+            }
 
             let callBackValue: WebPortalCallback
             if let dict = (result.data as? [String: Any])?["data"] as? [String: Any] {
@@ -45,10 +45,8 @@ public class IonicPortalsService: WebPortalServiceProtocol {
             if let value = codable as? JSValue {
                 PortalsPubSub.publish(value, to: topic.rawValue)
             } else {
-                guard
-                    let data = try? JSONEncoder().encode(codable),
-                    let encodedStringData = String(data: data, encoding: .utf8)
-                else {
+                guard let data = try? JSONEncoder().encode(codable),
+                      let encodedStringData = String(data: data, encoding: .utf8) else {
                     return
                 }
 
@@ -56,7 +54,7 @@ public class IonicPortalsService: WebPortalServiceProtocol {
             }
         case .data(let data):
             guard let dictionary = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any],
-                    let value = dictionary as? JSValue else {
+                  let value = dictionary as? JSValue else {
                 return
             }
             PortalsPubSub.publish(value, to: topic.rawValue)
