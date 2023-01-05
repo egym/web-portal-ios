@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ionic-team/capacitor-swift-pm",
       "state" : {
-        "revision" : "c108ae317c35e88dc6d639b8f798f76f55b8f2c2",
-        "version" : "3.7.0"
+        "revision" : "0b4bb48cea870ce90c99d3fb5b5cb5f0e4527439",
+        "version" : "4.6.0"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/ionic-team/ionic-portals-ios.git",
       "state" : {
-        "revision" : "ac70f064db5b2a1eadac75c8a95ac72efff474f4",
-        "version" : "0.6.4"
+        "revision" : "fb3a37e3edb22d50e4ab0f61ede1faefd20e141d",
+        "version" : "0.7.1"
       }
     }
   ],

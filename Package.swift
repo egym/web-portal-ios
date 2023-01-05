@@ -13,7 +13,10 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/ionic-team/ionic-portals-ios.git", from: "0.6.4"),
+        .package(
+            url: "https://github.com/ionic-team/ionic-portals-ios.git",
+            .upToNextMajor(from: "0.7.0")
+            ),
     ],
     targets: [
         .target(
