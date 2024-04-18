@@ -17,23 +17,25 @@ public extension PortalUIView {
     }
 
     private func checkUpdate(liveAppId: String, portalView: PortalUIView, updateManager: LiveUpdateManager) {
-        updateManager.checkForUpdate(appId: liveAppId) { result in
+        updateManager.sync(appId: liveAppId) { result in
             switch result {
             case let .success(response):
-                if let snapshotId = response.data.snapshot {
-                    let localSnapshotsIds = updateManager.getAppSnapshots(for: liveAppId).map { $0.id }
-                    if localSnapshotsIds.contains(snapshotId) == false {
-                        updateManager.sync(appId: liveAppId) { _ in
-                            DispatchQueue.main.async {
-                                portalView.reload()
-                            }
-                        }
+                let latestLiveUpdate = response.liveUpdate
+                // Extracting live updates from updateManager apps
+                let localLiveUpdates = updateManager.apps.map { $0.value }
+
+                // Checking if the latestLiveUpdate is not contained in localLiveUpdates
+                if localLiveUpdates.contains(latestLiveUpdate) == false {
+                    // If latestLiveUpdate is not present locally, reload the portal view
+                    DispatchQueue.main.async {
+                        portalView.reload() // Reload the portal view
                     }
                 }
             case .failure:
-                // in case of failure, static view was already presented in the completion
+                // Handle failure case if needed
                 break
             }
         }
     }
+
 }
