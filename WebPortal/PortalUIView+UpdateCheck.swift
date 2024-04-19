@@ -28,11 +28,11 @@ public extension PortalUIView {
                 if localLiveUpdates.contains(latestLiveUpdate) == false {
                     // If latestLiveUpdate is not present locally, reload the portal view
                     DispatchQueue.main.async {
-                        portalView.reload() // Reload the portal view
+                        portalView.reload() // Reload the portal view with the newest update
                     }
                 }
             case .failure:
-                // Handle failure case if needed
+                // in case of failure, static view was already presented in the completion
                 break
             }
         }
